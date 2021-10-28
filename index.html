@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body onload="init()">
+  <header>
+    <div class="header-title">MemeGen</div>
+    <nav class="header-links-container">
+      <div class="header-link" onclick="showGallery()">Gallery</div>
+      <div>|</div>
+      <div class="header-link" onclick="showAbout()">About</div>
+    </nav>
+  </header>
+  <main>
+    <div id="gallery-container" class="gallery-container"></div>
+    <div id="meme-editor-page">
+      <div id="meme-editor-container" class="meme-editor-container">
+        <canvas id="meme-editor"></canvas>
+        <div id="editor-controlers-container" class="editor-controlers-container container">
+          <input id="input-text" type="text" />
+          <button id="switch-line" onclick="switchLine()">
+            <img src="ICONS/up-and-down-opposite-double-arrows-side-by-side.png" />
+          </button>
+          <button id="add-line" onclick="addLine()">
+            <img src="ICONS/add.png" />
+          </button>
+          <button id="delete-line" onclick="deleteLine()">
+            <img src="ICONS/trash.png" />
+          </button>
+        </div>
+        <div id="editor-tools-container" class="editor-controlers-container container">
+          <button id="bigger-text" onclick="biggerText()">
+            <img src="ICONS/increase font - icon.png" />
+          </button>
+          <button id="smaller-text" onclick="smallerText()">
+            <img src="ICONS/decrease font - icon.png" />
+          </button>
+          <button id="align-left" onclick="alignLeft()">
+            <img src="ICONS/align-to-left.png" />
+          </button>
+          <button id="align-center" onclick="alignCenter()">
+            <img src="ICONS/center-text-alignment.png" />
+          </button>
+          <button id="align-right" onclick="alignRight()">
+            <img src="ICONS/align-to-right.png" />
+          </button>
+          <select id="font-list" onchange="fontChange(this)">
+            <option id="Impact" value="Impact" style="font-family: Impact" selected="selected">Impact</option>
+            <option id="Arial" value="Arial" style="font-family: Arial">Arial</option>
+          </select>
+          <button id="change-stroke" onclick="changeStroke()">
+            <img src="ICONS/text stroke.png" />
+          </button>
+          <button><label class="color-label"><img src="ICONS/paint-board-and-brush.png">
+              <input id="color-picker" type="color" onchange="changeColor()" class="color-input"></label>
+          </button>
+          <a href="#" onclick="downloadCanvas(this)" download="">Download</a>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer></footer>
+
+  <script src="main.js"></script>
+
+</html>

@@ -1,0 +1,118 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  background-color: #d3d0d0;
+}
+
+header {
+  min-height: 100px;
+  max-height: 100px;
+  background-color: rgb(255, 129, 27);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+main {
+  flex: auto;
+  overflow: auto;
+  margin: 20px auto;
+    padding: 10px;
+    width: 95%;
+  align-items: center;
+}
+
+footer {
+  min-height: 200px;
+  background-color: rgb(255, 129, 27);
+}
+
+
+.header-title {
+  font-family: Eurofurence;
+  font-size: 2rem;
+  color: #ffffff;
+  font-weight: 700;
+  padding: 10px;
+}
+
+.header-links-container {
+  display: flex;
+  padding: 10px;
+  justify-content: space-between;
+}
+.header-link {
+  margin-right: 20px;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.gallery-container img {
+  width: 20%;
+  margin-right: 1%;
+  border-radius: 10px;
+}
+
+canvas {
+  width: 60%;
+  height: 50%;
+}
+
+.editor-controlers-container {
+  width: 40%;
+}
+
+.meme-editor-container {
+  justify-content: space-between;
+  gap: 20px;
+  display: flex;
+  margin-top: 20px;
+}
+
+.editor-controlers-container img {
+  width: 40px;
+  border-radius: 10px;
+}
+
+.editor-controlers-container button {
+  border: transparent;
+  background-color: white;
+  border-radius: 10px;
+  height: fit-content;
+  width: fit-content;
+  margin: 5px;
+}
+
+.editor-controlers-container input[type="text"] {
+  width: 90%;
+  height: 40px;
+  margin: 5px;
+}
+
+.editor-controlers-container input,
+select {
+  font-size: 2rem;
+  border-radius: 10px;
+  margin: 5px;
+}
+
+.editor-controlers-container select {
+  width: 50%;
+  height: fit-content;
+}
+
+.color-input{
+    opacity: 0
+}
+
+.color-label img {
+    margin-top: 1px;
+}
