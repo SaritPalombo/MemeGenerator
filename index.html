@@ -7,67 +7,85 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Document</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 </head>
 
-<body onload="init()">
+<body onload="onInit()" class="body">
   <header>
-    <div class="header-title">MemeGen</div>
-    <nav class="header-links-container">
+    <div class="mobile-menu">
+      <div class="header-title">MemeGen</div>
+      <div class="fa fa-bars fa-lg burger-menu" onclick="toggleMenu()"></div>
+    </div>
+    <nav id="links" class="header-links-container">
       <div class="header-link" onclick="showGallery()">Gallery</div>
-      <div>|</div>
+      <div class="header-link line">|</div>
       <div class="header-link" onclick="showAbout()">About</div>
     </nav>
   </header>
   <main>
     <div id="gallery-container" class="gallery-container"></div>
-    <div id="meme-editor-page">
-      <div id="meme-editor-container" class="meme-editor-container">
-        <canvas id="meme-editor"></canvas>
-        <div id="editor-controlers-container" class="editor-controlers-container container">
-          <input id="input-text" type="text" />
-          <button id="switch-line" onclick="switchLine()">
-            <img src="ICONS/up-and-down-opposite-double-arrows-side-by-side.png" />
-          </button>
-          <button id="add-line" onclick="addLine()">
-            <img src="ICONS/add.png" />
-          </button>
-          <button id="delete-line" onclick="deleteLine()">
-            <img src="ICONS/trash.png" />
-          </button>
-        </div>
-        <div id="editor-tools-container" class="editor-controlers-container container">
-          <button id="bigger-text" onclick="biggerText()">
-            <img src="ICONS/increase font - icon.png" />
-          </button>
-          <button id="smaller-text" onclick="smallerText()">
-            <img src="ICONS/decrease font - icon.png" />
-          </button>
-          <button id="align-left" onclick="alignLeft()">
-            <img src="ICONS/align-to-left.png" />
-          </button>
-          <button id="align-center" onclick="alignCenter()">
-            <img src="ICONS/center-text-alignment.png" />
-          </button>
-          <button id="align-right" onclick="alignRight()">
-            <img src="ICONS/align-to-right.png" />
-          </button>
-          <select id="font-list" onchange="fontChange(this)">
-            <option id="Impact" value="Impact" style="font-family: Impact" selected="selected">Impact</option>
-            <option id="Arial" value="Arial" style="font-family: Arial">Arial</option>
-          </select>
-          <button id="change-stroke" onclick="changeStroke()">
-            <img src="ICONS/text stroke.png" />
-          </button>
-          <button><label class="color-label"><img src="ICONS/paint-board-and-brush.png">
-              <input id="color-picker" type="color" onchange="changeColor()" class="color-input"></label>
-          </button>
+    <div id="meme-editor-page" class="meme-editor-page">
+      <canvas id="meme-editor"></canvas>
+      <div class="text-editor">
+        <input id="input-text" type="text" />
+        <button id="update" disabled style="filter: grayscale(100%)" onclick="updateLine()">
+          <img src="ICONS/check.png" />
+        </button>
+        <button id="move-line-up" onclick="moveUpLine()">
+          <img src="ICONS/up-arrow.jpg" />
+        </button>
+        <button id="move-line-down" onclick="moveDownLine()">
+          <img src="ICONS/down-arrow.jpg" />
+        </button>
+        <button id="switch-line" onclick="switchLine()">
+          <img src="ICONS/up-and-down-opposite-double-arrows-side-by-side.png" />
+        </button>
+        <button id="add-line" onclick="addLine()">
+          <img src="ICONS/add.png" />
+        </button>
+        <button id="delete-line" onclick="deleteLine()">
+          <img src="ICONS/trash.png" />
+        </button>
+        <button id="bigger-text" onclick="biggerText()">
+          <img src="ICONS/increase font - icon.png" />
+        </button>
+        <button id="smaller-text" onclick="smallerText()">
+          <img src="ICONS/decrease font - icon.png" />
+        </button>
+        <button id="align-left" onclick="alignLeft()">
+          <img src="ICONS/align-to-left.png" />
+        </button>
+        <button id="align-center" onclick="alignCenter()">
+          <img src="ICONS/center-text-alignment.png" />
+        </button>
+        <button id="align-right" onclick="alignRight()">
+          <img src="ICONS/align-to-right.png" />
+        </button>
+        <select id="font-list" onchange="fontChange(this)">
+          <option id="Impact" value="Impact" style="font-family: Impact" selected="selected">
+            Impact
+          </option>
+          <option id="Arial" value="Arial" style="font-family: Arial">
+            Arial
+          </option>
+        </select>
+        <button id="change-stroke" onclick="changeStroke()">
+          <img src="ICONS/text stroke.png" />
+        </button>
+        <button>
+          <label class="color-label"><img src="ICONS/paint-board-and-brush.png" />
+            <input id="color-picker" type="color" onchange="changeColor()" class="color-input" /></label>
+        </button>
+        <button class="download-button">
           <a href="#" onclick="downloadCanvas(this)" download="">Download</a>
-        </div>
+        </button>
       </div>
     </div>
   </main>
   <footer></footer>
-
-  <script src="main.js"></script>
+</body>
+<script src="/js/contoller.js"></script>
+<script src="/js/mainService.js"></script>
+<script src="/js/memeService.js"></script>
 
 </html>

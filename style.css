@@ -6,113 +6,227 @@ body {
   margin: 0;
 }
 
-body {
-  display: flex;
-  flex-direction: column;
+.body {
+  display: grid;
+  grid-template-columns: 10% auto 10%;
+  grid-template-rows: 8% auto 16%;
   background-color: #d3d0d0;
 }
 
 header {
-  min-height: 100px;
-  max-height: 100px;
   background-color: rgb(255, 129, 27);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  grid-column: 1/4;
+  grid-row: 1/2;
+  display: grid;
+  grid-template-columns: 10% 10% auto 10% 10%;
 }
 
 main {
-  flex: auto;
+  grid-column: 2/3;
+  grid-row: 2/3;
+  flex: grid;
+  grid-template-columns: 15% auto 15%;
   overflow: auto;
-  margin: 20px auto;
-    padding: 10px;
-    width: 95%;
-  align-items: center;
 }
 
 footer {
-  min-height: 200px;
+  grid-row: 3/4;
+  grid-column: 1/4;
   background-color: rgb(255, 129, 27);
 }
 
+.flex {
+  display: flex;
+}
+
+.space-between {
+  justify-content: space-around;
+}
 
 .header-title {
   font-family: Eurofurence;
   font-size: 2rem;
   color: #ffffff;
   font-weight: 700;
-  padding: 10px;
+  grid-column: 2/3;
+  align-self: center;
 }
 
 .header-links-container {
+  grid-column: 4/5;
   display: flex;
-  padding: 10px;
   justify-content: space-between;
 }
+
 .header-link {
-  margin-right: 20px;
-  margin-left: 20px;
+  align-self: center;
   cursor: pointer;
 }
 
+.gallery-container {
+  margin-top: 5%;
+  display: grid;
+  grid-template-columns: repeat(5, 200px);
+  gap: 1%;
+  justify-content: space-between;
+}
+
 .gallery-container img {
-  width: 20%;
-  margin-right: 1%;
-  border-radius: 10px;
+  width: 100%;
+  border-radius: 5%;
+  cursor: pointer;
 }
 
 canvas {
-  width: 60%;
-  height: 50%;
+  height: inherit;
+  border-radius: 5%;
+  align-self: stretch;
+  grid-column: 1/2;
 }
 
-.editor-controlers-container {
-  width: 40%;
+.text-editor {
+  flex-direction: column;
+  grid-column: 3/4;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 50px);
+  row-gap: 2%;
 }
 
-.meme-editor-container {
-  justify-content: space-between;
-  gap: 20px;
-  display: flex;
-  margin-top: 20px;
+.meme-editor-page {
+  display: grid;
+  grid-template-columns: 50% 10% 30% 10%;
+  margin-top: 2%;
 }
 
-.editor-controlers-container img {
+.text-editor img {
   width: 40px;
-  border-radius: 10px;
+  align-self: center;
 }
 
-.editor-controlers-container button {
+.text-editor button {
   border: transparent;
   background-color: white;
-  border-radius: 10px;
-  height: fit-content;
-  width: fit-content;
-  margin: 5px;
+  border-radius: 30%;
+  height: 50px;
+  width: 50px;
 }
 
-.editor-controlers-container input[type="text"] {
-  width: 90%;
-  height: 40px;
-  margin: 5px;
+.text-editor input[type="text"] {
+  grid-column: 1/5;
 }
 
-.editor-controlers-container input,
+.text-editor input,
 select {
-  font-size: 2rem;
-  border-radius: 10px;
-  margin: 5px;
+  font-size: 1.25rem;
+  border-radius: 3vh;
+  margin-right: 5%;
 }
 
-.editor-controlers-container select {
-  width: 50%;
-  height: fit-content;
+.text-editor select {
+  grid-column: 1/4;
+  grid-row: 4/5;
 }
 
-.color-input{
-    opacity: 0
+img{
+  cursor: pointer;
+}
+
+.color-input {
+  opacity: 0;
 }
 
 .color-label img {
-    margin-top: 1px;
+  background-image: url("ICONS/paint-board-and-brush.png");
+}
+
+.download-button {
+  background-color: rgb(255, 129, 27) !important;
+  height: 3rem !important;
+  width: 85% !important;
+  border-radius: 3vh !important;
+  grid-column: 4/6;
+  grid-row: 5/6;
+}
+
+.download-button a {
+  color: white;
+  font-size: 1.25rem;
+  text-decoration: none;
+  text-align: center;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.burger-menu {
+  display: none !important;
+  height: inherit;
+  color: white;
+  font-size: 10rem;
+  align-self: center;
+}
+
+/* Mobile */
+@media (max-width: 840px) {
+  header {
+    display: block;
+    position: fixed;
+    width: 100%;
+  }
+
+  .mobile-menu{
+    display: flex;
+    justify-content:space-between;
+  }
+
+  nav {
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgb(255, 129, 27);
+    width: 100%;
+    display: none;
+  }
+
+  .burger-menu {
+    display:initial !important;
+    margin-right: 10%;
+  }
+
+  .header-title {
+    align-self: flex-start;
+    margin-left: 10%;
+  }
+
+  .header-links-container{
+    display: none;
+    font-size: 1.2rem;
+    margin-left: 10%;
+  }
+
+  .line {
+    display: none !important;
+  }
+
+  .gallery-container {
+    grid-template-columns: repeat(2, 200px);
+  }
+
+  canvas{
+    width: 100%;
+  }
+
+  .meme-editor-page{
+    display: block;
+  }
+
+  .text-editor{
+    margin-top: 2%;
+    margin-bottom: 5%;
+  }
+
+  .download-button{
+    grid-column: 2/5;
+  }
 }
